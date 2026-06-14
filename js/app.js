@@ -283,7 +283,8 @@
       "p",
       "",
       message ||
-        "Your browser will ask for permission. Your exact coordinates are not stored."
+        "Coordinates are sent for the live OpenStreetMap search and are not " +
+          "stored by this app."
     );
     var button = createElement("button", "button button-accent", "Find places near me");
 

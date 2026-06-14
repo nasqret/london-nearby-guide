@@ -30,13 +30,15 @@ Then open <http://localhost:4173>.
 
 ## How it works
 
-The app keeps the user's current coordinates in browser memory only. Nearby
-places are queried from OpenStreetMap through public Overpass API endpoints.
-The result list is sorted using a client-side Haversine distance calculation.
+The app does not persist the user's coordinates or keep location history.
+Coordinates are sent to a public OpenStreetMap Overpass endpoint when the user
+requests live nearby places. The result list is sorted using a client-side
+Haversine distance calculation.
 
 Directions use the documented Google Maps URL format, so the app does not need
-a Google Maps API key. On supported phones, the URL can open directly in the
-Google Maps app.
+a Google Maps API key. A directions link includes the current and destination
+coordinates only after the user taps it. On supported phones, the URL can open
+directly in the Google Maps app.
 
 ## Data and limitations
 
