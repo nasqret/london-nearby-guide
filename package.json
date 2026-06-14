@@ -1,0 +1,13 @@
+{
+  "name": "london-nearby-guide",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A mobile-first London sights and nearby places PWA.",
+  "scripts": {
+    "check": "node --check js/data.js && node --check js/utils.js && node --check js/nearby.js && node --check js/app.js && node --check sw.js",
+    "test": "node tests/run-tests.js",
+    "verify": "npm run check && npm test",
+    "serve": "python3 -m http.server 4173"
+  },
+  "license": "MIT"
+}

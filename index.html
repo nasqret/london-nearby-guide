@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#132a24">
+    <meta
+      name="description"
+      content="Discover essential London sights and find nearby cafes, restaurants, and shops with one-tap Google Maps directions."
+    >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="London Near">
+    <title>London Near - Sights and places around you</title>
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="./assets/icon-192.png">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="London Near home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" role="img">
+            <path d="M16 3.5a9 9 0 0 0-9 9c0 6.8 9 16 9 16s9-9.2 9-16a9 9 0 0 0-9-9Z"></path>
+            <circle cx="16" cy="12.5" r="3.4"></circle>
+          </svg>
+        </span>
+        <span>London Near</span>
+      </a>
+      <button class="button button-small button-ghost install-button" type="button" hidden>
+        Install app
+      </button>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-map" aria-hidden="true">
+          <span class="map-line map-line-one"></span>
+          <span class="map-line map-line-two"></span>
+          <span class="map-line map-line-three"></span>
+          <span class="map-station station-one"></span>
+          <span class="map-station station-two"></span>
+          <span class="map-station station-three"></span>
+        </div>
+
+        <div class="hero-content">
+          <p class="eyebrow">A pocket guide for London</p>
+          <h1 id="hero-title">Good places.<br>Right around you.</h1>
+          <p class="hero-copy">
+            Explore essential sights, then find cafes, restaurants, and shops near your
+            current position. Tap once for walking directions in Google Maps.
+          </p>
+          <div class="hero-actions">
+            <button class="button button-primary locate-button" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M12 2v3M12 19v3M2 12h3M19 12h3"></path>
+                <circle cx="12" cy="12" r="7"></circle>
+              </svg>
+              Use my location
+            </button>
+            <button class="button button-secondary browse-sights-button" type="button">
+              Browse top sights
+            </button>
+          </div>
+          <ul class="hero-notes" aria-label="App highlights">
+            <li>No account</li>
+            <li>No API key</li>
+            <li>Location stays on device</li>
+          </ul>
+        </div>
+
+        <aside class="location-card" aria-live="polite">
+          <div class="location-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M12 2v3M12 19v3M2 12h3M19 12h3"></path>
+              <circle cx="12" cy="12" r="7"></circle>
+            </svg>
+          </div>
+          <div>
+            <p class="location-label">Your position</p>
+            <p class="location-copy">Location has not been shared yet.</p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section sights-section" id="sights" aria-labelledby="sights-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow eyebrow-dark">Start with the classics</p>
+            <h2 id="sights-title">London essentials</h2>
+          </div>
+          <p class="section-intro">
+            A compact mix of landmarks, museums, markets, and green spaces worth
+            putting on a first London itinerary.
+          </p>
+        </div>
+
+        <div class="toolbar">
+          <label class="search-field">
+            <span class="visually-hidden">Search London sights</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"></circle>
+              <path d="m16 16 5 5"></path>
+            </svg>
+            <input
+              class="sights-search"
+              type="search"
+              placeholder="Search sights or areas"
+              autocomplete="off"
+            >
+          </label>
+          <p class="results-count sights-count" aria-live="polite"></p>
+        </div>
+
+        <div class="sights-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="section nearby-section" id="nearby" aria-labelledby="nearby-title">
+        <div class="nearby-shell">
+          <div class="section-heading section-heading-light">
+            <div>
+              <p class="eyebrow">Explore your block</p>
+              <h2 id="nearby-title">What is nearby?</h2>
+            </div>
+            <p class="section-intro">
+              Live place data is loaded only after you share your browser location.
+            </p>
+          </div>
+
+          <div class="nearby-controls" aria-label="Nearby place filters">
+            <div class="category-tabs" role="group" aria-label="Place category">
+              <button class="category-tab is-active" data-category="cafe" type="button">
+                Cafes
+              </button>
+              <button class="category-tab" data-category="restaurant" type="button">
+                Restaurants
+              </button>
+              <button class="category-tab" data-category="shop" type="button">
+                Shops
+              </button>
+            </div>
+            <div class="radius-control">
+              <label for="radius-select">Within</label>
+              <select id="radius-select" class="radius-select">
+                <option value="500">500 m</option>
+                <option value="1000" selected>1 km</option>
+                <option value="1500">1.5 km</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="nearby-state" aria-live="polite">
+            <div class="empty-state">
+              <span class="empty-state-number">01</span>
+              <div>
+                <h3>Share your position</h3>
+                <p>
+                  Your browser will ask for permission. We use the coordinates only to
+                  find places near you and build directions links.
+                </p>
+                <button class="button button-accent locate-button" type="button">
+                  Find places near me
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="nearby-results-header" hidden>
+            <p class="results-count nearby-count"></p>
+            <button class="text-button refresh-nearby" type="button">
+              Refresh results
+            </button>
+          </div>
+          <div class="nearby-grid"></div>
+
+          <p class="data-credit">
+            Nearby place data:
+            <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">
+              OpenStreetMap contributors
+            </a>
+          </p>
+        </div>
+      </section>
+
+      <section class="section how-section" id="about" aria-labelledby="how-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow eyebrow-dark">Simple by design</p>
+            <h2 id="how-title">From here to there</h2>
+          </div>
+        </div>
+        <ol class="steps">
+          <li>
+            <span class="step-number">01</span>
+            <h3>Share your position</h3>
+            <p>Use the browser prompt when you want distance-aware results.</p>
+          </li>
+          <li>
+            <span class="step-number">02</span>
+            <h3>Choose a place</h3>
+            <p>Browse London sights or switch between nearby place categories.</p>
+          </li>
+          <li>
+            <span class="step-number">03</span>
+            <h3>Walk there</h3>
+            <p>Open a ready-made route in Google Maps with one tap.</p>
+          </li>
+        </ol>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand brand-footer" href="#top">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32">
+            <path d="M16 3.5a9 9 0 0 0-9 9c0 6.8 9 16 9 16s9-9.2 9-16a9 9 0 0 0-9-9Z"></path>
+            <circle cx="16" cy="12.5" r="3.4"></circle>
+          </svg>
+        </span>
+        <span>London Near</span>
+      </a>
+      <p>Built as a lightweight, installable browser app.</p>
+      <p>
+        Sight inspiration:
+        <a
+          href="https://www.visitlondon.com/things-to-do/sightseeing/london-attraction/top-ten-attractions"
+          target="_blank"
+          rel="noopener"
+        >
+          Visit London
+        </a>
+      </p>
+    </footer>
+
+    <nav class="mobile-nav" aria-label="Page sections">
+      <a href="#sights">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 20h16M6 20V9l6-5 6 5v11M9 20v-6h6v6"></path>
+        </svg>
+        <span>Sights</span>
+      </a>
+      <a href="#nearby">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"></path>
+          <circle cx="12" cy="9" r="2.5"></circle>
+        </svg>
+        <span>Nearby</span>
+      </a>
+      <button class="mobile-locate locate-button" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M12 2v3M12 19v3M2 12h3M19 12h3"></path>
+          <circle cx="12" cy="12" r="7"></circle>
+        </svg>
+        <span>Locate</span>
+      </button>
+    </nav>
+
+    <div class="toast" role="status" aria-live="polite" hidden></div>
+
+    <noscript>
+      <div class="noscript-message">
+        London Near needs JavaScript to calculate distances and find nearby places.
+      </div>
+    </noscript>
+
+    <script src="./js/data.js" defer></script>
+    <script src="./js/utils.js" defer></script>
+    <script src="./js/nearby.js" defer></script>
+    <script src="./js/app.js" defer></script>
+  </body>
+</html>
