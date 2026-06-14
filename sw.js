@@ -1,6 +1,6 @@
 "use strict";
 
-var CACHE_NAME = "london-near-v1";
+var CACHE_NAME = "london-near-v2";
 var APP_SHELL = [
   "./",
   "./index.html",
